@@ -54,4 +54,30 @@ function mergeSort(arr) {
   // }
 }
 
-console.log(mergeSort([6,5,12,10,9,1]));
+// console.log(mergeSort([6,5,12,10,9,1]));
+
+function binarySearch(target, array) {
+  return binaryRec(target,array, 0);
+}
+
+function binaryRec(target, array, index) {
+  if(array.length === 1) {
+    if(target === array[0]) return index;
+    return -1;
+  }
+
+  let middle = Math.floor(array.length / 2);
+  index += middle;
+  if(target === array[middle]) {
+    return index;
+  } else if(target > array[middle]) {
+    index++;
+    return binaryRec(target, array.slice(middle+1), index)
+  } else {
+    index -= middle;
+    return binaryRec(target, array.slice(0, middle), index)
+  }
+
+}
+
+console.log(binarySearch(10, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
