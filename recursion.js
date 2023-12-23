@@ -44,14 +44,6 @@ function mergeSort(arr) {
     ? sortedArray.concat(rightMerge.slice(rightIndex))
     : sortedArray.concat(leftMerge.slice(leftIndex))
   return sortedArray;
-  // if(leftIndex === leftMerge.length) {
-  //   sortedArray = sortedArray.concat(rightMerge.slice(rightIndex))
-  //   return(sortedArray);
-  // // } else if (rightIndex === rightMerge.length) {
-  // } else {
-  //   sortedArray = sortedArray.concat(leftMerge.slice(leftIndex))
-  //   return(sortedArray);
-  // }
 }
 
 // console.log(mergeSort([6,5,12,10,9,1]));
@@ -62,8 +54,7 @@ function binarySearch(target, array) {
 
 function binaryRec(target, array, index) {
   if(array.length === 1) {
-    if(target === array[0]) return index;
-    return -1;
+    return target === array[0] ? index : -1;
   }
 
   let middle = Math.floor(array.length / 2);
@@ -80,4 +71,5 @@ function binaryRec(target, array, index) {
 
 }
 
-console.log(binarySearch(10, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+// console.log(binarySearch(10, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+console.log(binarySearch(202, [2,5,8,12,16,23,38,56,72,91, 101, 202, 322, 324, 432, 543]))
